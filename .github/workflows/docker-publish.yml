@@ -34,8 +34,8 @@ jobs:
       id-token: write
 
     steps:
-      - Semantic Versioning
-      - uses: paulhatch/semantic-version@v5.1.0
+      - name: Semantic Versioning
+        uses: paulhatch/semantic-version@v5.1.0
         with:
           # The prefix to use to identify tags
           tag_prefix: "v"
