@@ -86,5 +86,5 @@ jobs:
 
       - name: 'Build Inventory Image'
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{jobs.build.semantic-version.version_tag}}${{jobs.build.semantic-version.version}}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{jobs.build.semantic-version.version_tag}}${{jobs.build.semantic-version.version}}
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.semantic-version.outputs.version_tag}}${{steps.semantic-version.outputs.version}}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.semantic-version.outputs.version_tag}}${{steps.semantic-version.outputs.version}}
