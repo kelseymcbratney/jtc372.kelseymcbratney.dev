@@ -88,5 +88,5 @@ jobs:
 
       - name: 'Build Inventory Image'
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}${{steps.version.outputs.version}}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}${{steps.version.outputs.version}}
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}
