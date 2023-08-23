@@ -34,8 +34,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: Semantic Versioning
-        uses: paulhatch/semantic-version@v5.1.0
+      - uses: paulhatch/semantic-version@v5.2.0
         with:
           # The prefix to use to identify tags
           tag_prefix: "v"
@@ -82,10 +81,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: 'Checkout GitHub Action'
+      - name: 'Push Image to GHCR'
         uses: actions/checkout@main
 
       - name: 'Build Inventory Image'
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{jobs.build.semantic-version.version_tag}}${{jobs.build.semantic-version.version}}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{jobs.build.semantic-version.version_tag}}${{jobs.build.semantic-version.version}}
