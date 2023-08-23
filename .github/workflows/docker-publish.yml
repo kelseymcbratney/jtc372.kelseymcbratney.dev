@@ -34,7 +34,9 @@ jobs:
       id-token: write
 
     steps:
-      - uses: paulhatch/semantic-version@v5.2.0
+      - name: "Semantic Version"
+        id: version
+        uses: paulhatch/semantic-version@v5.2.0
         with:
           # The prefix to use to identify tags
           tag_prefix: "v"
@@ -86,5 +88,5 @@ jobs:
 
       - name: 'Build Inventory Image'
         run: |
-          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.semantic-version.outputs.version_tag}}${{steps.semantic-version.outputs.version}}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.semantic-version.outputs.version_tag}}${{steps.semantic-version.outputs.version}}
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}${{steps.version.outputs.version}}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.version.outputs.version_tag}}${{steps.version.outputs.version}}
