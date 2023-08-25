@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.sha }}
           fetch-depth: '0'
 
       - name: Dry Run - Increment Patch for Each Commit
@@ -64,11 +65,4 @@ jobs:
           DEFAULT_BUMP: patch
           RELEASE_BRANCHES: main
 
-      - name: Automatic Relase on Minor Change
-        uses: rymndhng/release-on-push-action@v0.28.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          bump_version_scheme: minor
-          use_github_release_notes: true
 
