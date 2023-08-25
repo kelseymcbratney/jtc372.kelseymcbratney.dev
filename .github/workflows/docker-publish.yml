@@ -61,7 +61,7 @@ jobs:
       - name: 'Build Inventory Image'
         run: |
           docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.taggerDryRun.outputs.new_tag}}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.taggerDryRun.outputs.new_tag}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{steps.taggerDryRun.outputs.new_tag}}
 
     # IN CASE OF FAILURE, THE STEP BELOW WILL NOT RUN.
 
