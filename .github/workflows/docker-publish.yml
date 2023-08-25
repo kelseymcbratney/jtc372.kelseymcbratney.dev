@@ -65,7 +65,10 @@ jobs:
           RELEASE_BRANCHES: main
 
       - name: Automatic Relase on Minor Change
-        uses: rymndhng/release-on-push-action@v0.28.0
+        uses: rymndhng/release-on-push-action@v0.28.0Image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           bump_version_scheme: minor
           use_github_release_notes: true
+
