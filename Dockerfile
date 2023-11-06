@@ -1,3 +1,3 @@
 FROM linuxserver/nginx
 
-COPY /src/* /config/
+COPY /src/* /config/www/
