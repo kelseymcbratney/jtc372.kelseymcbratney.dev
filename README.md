@@ -4,4 +4,4 @@
 # jtc372.kelseymcbratney.dev
 Colorado State University - JTC372
 
-[jtc372.kelseymcbratney.dev](jtc372.kelseymcbratney.dev)
+[jtc372.kelseymcbratney.dev](https://jtc372.kelseymcbratney.dev)
